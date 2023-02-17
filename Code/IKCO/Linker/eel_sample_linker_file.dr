@@ -1,0 +1,39 @@
+
+MEMORY ROM1   : ( 00EA00H , 15FFH )	; ROM - 256 KB  ; --> working when using interrupt.c
+;MEMORY ROM1   : ( 00F400H , 0BFFH )	; ROM - 256 KB  ; --> working without interrupt.c
+MERGE @@LCODE := ROM1 ; near  ; Segment for library code (allocated to near area)
+MERGE @@CODE  := ROM1 ; near  ; Segment for code portion (allocated to near area)
+MERGE @@BASE  := ROM1 ; near  ; Segment for code portion (allocated to near area)
+MERGE @@CNST   := ROM1 ; near ; ROM data (allocated to near area)
+;MERGE @@CNSTR  := ROM ; near ; Segment for ROM data portion (allocated to RAM) (allocated to near area)
+
+MEMORY ROM   : ( 010008H , 2FFF0H )	; ROM - 256 KB
+MERGE FDL_CODE:=ROM
+MERGE EEL_CODE:=ROM
+MERGE FDL_CNST:=ROM
+MERGE EEL_CNST:=ROM
+
+
+MERGE @@LCODEL: = ROM;    ; far ; Segment for library code (allocated to far area)
+MERGE @@RLINIT   := ROM
+MERGE @@CODEL: = ROM   ; far ; Segment for code portion (allocated to far area)
+MEMORY OCDROM :( 03A00H, 000200H) ; ---> for debugging
+MEMORY OCDSTAD :(0000CEH, 00000AH) ; ---> for debugging
+MEMORY D_ROM : (0000H, 0C0H)
+MEMORY CSEG0B0 :(0000C0H, 000004H)
+MERGE @@CNSTL : AT (011000H ) = ROM ; far ; ROM data (allocated to far area)
+
+MEMORY RAM : ( 0FC300H , 0380FH )	; for device RAM size 16-KB
+; RAM vector : SIZE = 0X100 : 0xFFB10 - 0x100 : 0xFFA10 
+; RAM vector start : 0xFFA10
+MEMORY STK :(0FFB10H,0300H)	;stack end edress + size
+MEMORY RAM_SADDR : ( 0FFE20H , 001E0H )	; RAM (saddr)
+
+;*******************************************************************************
+; EEL_SDAT and FDL_SDAT segment is located inside saddr RAM
+;*******************************************************************************
+MERGE FDL_SDAT:=RAM_SADDR
+MERGE EEL_SDAT:=RAM_SADDR
+;*******************************************************************************
+; EEL_CNST and FDL_CNST segments are located inside ROM
+;*******************************************************************************

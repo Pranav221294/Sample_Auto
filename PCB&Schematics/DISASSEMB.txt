@@ -1,0 +1,75 @@
+Line  Address  Opcode Label                Disassembly              
+
+     1   0000    2820         GOTO 0x20                              
+     2   0001    3FFF                                                
+     3   0002    3FFF                                                
+     4   0003    3FFF                                                
+     5   0004    3FFF                                                
+     6   0005    3400         RETLW 0                                
+     7   0006    3400         RETLW 0                                
+     8   0007    3FFF                                                
+     9   0008    3FFF                                                
+    10   0009    3FFF                                                
+    11   000A    3FFF                                                
+    12   000B    3FFF                                                
+    13   000C    3FFF                                                
+    14   000D    3FFF                                                
+    15   000E    3FFF                                                
+    16   000F    3FFF                                                
+    17   0010    3FFF                                                
+    18   0011    3FFF                                                
+    19   0012    3FFF                                                
+    20   0013    3FFF                                                
+    21   0014    3FFF                                                
+    22   0015    3FFF                                                
+    23   0016    3FFF                                                
+    24   0017    3FFF                                                
+    25   0018    3FFF                                                
+    26   0019    3FFF                                                
+    27   001A    3FFF                                                
+    28   001B    3FFF                                                
+    29   001C    3FFF                                                
+    30   001D    3FFF                                                
+    31   001E    3FFF                                                
+    32   001F    3FFF                                                
+    33   0020    3001         MOVLW 0x1                              
+    34   0021    00A0         MOVWF 0x20                             
+    35   0022    3001         MOVLW 0x1                              
+    36   0023    00A1         MOVWF 0x21                             
+    37   0024    301F         MOVLW 0x1f                             
+    38   0025    00A2         MOVWF 0x22                             
+    39   0026    3000         MOVLW 0                                
+    40   0027    00A3         MOVWF 0x23                             
+    41   0028    01A4         CLRF 0x24                              
+    42   0029    01A5         CLRF 0x25                              
+    43   002A    01A6         CLRF 0x26                              
+    44   002B    01A7         CLRF 0x27                              
+    45   002C    0822         MOVF 0x22, W                           
+    46   002D    0220         SUBWF 0x20, W                          
+    47   002E    00A4         MOVWF 0x24                             
+    48   002F    1C03         BTFSS STATUS, 0                        
+    49   0030    0A23         INCF 0x23, W                           
+    50   0031    1803         BTFSC STATUS, 0                        
+    51   0032    0823         MOVF 0x23, W                           
+    52   0033    0221         SUBWF 0x21, W                          
+    53   0034    00A5         MOVWF 0x25                             
+    54   0035    1C03         BTFSS STATUS, 0                        
+    55   0036    283F         GOTO 0x3f                              
+    56   0037    0824         MOVF 0x24, W                           
+    57   0038    00A0         MOVWF 0x20                             
+    58   0039    0825         MOVF 0x25, W                           
+    59   003A    00A1         MOVWF 0x21                             
+    60   003B    0AA6         INCF 0x26, F                           
+    61   003C    1803         BTFSC STATUS, 0                        
+    62   003D    0AA7         INCF 0x27, F                           
+    63   003E    282C         GOTO 0x2c                              
+    64   003F    0821         MOVF 0x21, W                           
+    65   0040    0820         MOVF 0x20, W                           
+    66   0041    0827         MOVF 0x27, W                           
+    67   0042    0826         MOVF 0x26, W                           
+    68   0043    0000         NOP                                    
+    69   0044    0000         NOP                                    
+    70   0045    3FFF                                                
+    71   0046    3FFF                                                
+    72   0047    3FFF                                                
+    73   0048    3FFF                                              
